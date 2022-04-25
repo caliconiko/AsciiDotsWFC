@@ -26,6 +26,7 @@ dirs = ["up", "down", "left", "right"]
 
 full_module_data = deepcopy(basic_module_data)
 
+# do thing
 for module in basic_module_data:
     module_data:dict = basic_module_data[module]
 
@@ -62,9 +63,9 @@ for module in basic_module_data:
     
     full_module_data[module]["possible_neighbors"] = dict(possible_neighbors)
 
+# write thing
 json_dumps = json.dumps(full_module_data, indent=4)
 
 output_file_name = "full_module_data.json"
 with open(output_file_name, "w") as f:
     f.write(json_dumps)
-    
