@@ -1,7 +1,6 @@
 extends Control
 
 
-
 #COLORS = {
 #    REGULAR: (248, 248, 242),
 #    DOT: (104, 113, 94),
@@ -19,6 +18,7 @@ extends Control
 #    MSG_BG: (62, 61, 50),
 #    MOREDEBUG_COLOR: (253, 151, 31),
 #}
+
 var BACKGROUND_COLOR = Color(0.152941, 0.156863, 0.133333)
 
 func _ready():
