@@ -67,8 +67,4 @@ json_dumps = json.dumps(full_module_data, indent=4)
 output_file_name = "full_module_data.json"
 with open(output_file_name, "w") as f:
     f.write(json_dumps)
-
-
-            
-
     
