@@ -6,7 +6,7 @@
             "left": "0",
             "right": "0"
         },
-        "possible_neighbors": {
+        "possible_neighbours": {
             "up": [
                 " ",
                 "-"
@@ -38,7 +38,7 @@
             "left": "1",
             "right": "1"
         },
-        "possible_neighbors": {
+        "possible_neighbours": {
             "up": [
                 "|",
                 "/",
@@ -72,7 +72,7 @@
             "left": "0",
             "right": "0"
         },
-        "possible_neighbors": {
+        "possible_neighbours": {
             "left": [
                 " ",
                 "|"
@@ -102,7 +102,7 @@
             "left": "1",
             "right": "1"
         },
-        "possible_neighbors": {
+        "possible_neighbours": {
             "up": [
                 " ",
                 "-"
@@ -132,7 +132,7 @@
             "left": "1",
             "right": "1"
         },
-        "possible_neighbors": {
+        "possible_neighbours": {
             "up": [
                 "|",
                 "/",
@@ -166,7 +166,7 @@
             "left": "1",
             "right": "1"
         },
-        "possible_neighbors": {
+        "possible_neighbours": {
             "up": [
                 "|",
                 "/",
@@ -206,7 +206,7 @@
             "left": "0",
             "right": "0"
         },
-        "possible_neighbors": {
+        "possible_neighbours": {
             "up": [
                 " ",
                 "-"

@@ -40,7 +40,7 @@ for module in basic_module_data:
         in_sockets = module_data[IN_SOCKETS]
         out_sockets = module_data[OUT_SOCKETS]
 
-    possible_neighbors = defaultdict(list)
+    possible_neighbours = defaultdict(list)
 
     for other_module in basic_module_data:
         other_module_data:dict = basic_module_data[other_module]
@@ -59,9 +59,9 @@ for module in basic_module_data:
             other_dir = invert_dir[dir]
 
             if out_sockets[dir] == other_in_sockets[other_dir]:
-                possible_neighbors[dir].append(other_module)
+                possible_neighbours[dir].append(other_module)
     
-    full_module_data[module]["possible_neighbors"] = dict(possible_neighbors)
+    full_module_data[module]["possible_neighbours"] = dict(possible_neighbours)
 
 # write thing
 json_dumps = json.dumps(full_module_data, indent=4)
