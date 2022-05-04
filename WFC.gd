@@ -6,8 +6,8 @@ var wave_function = []
 var size:Vector2
 var stack = []
 
-func _init(size:Vector2, module_data:Dictionary):
-	wave_function = initialize(size, module_data)
+func _init(start_size:Vector2, module_data:Dictionary):
+	wave_function = initialize(start_size, module_data)
 
 func get_possibilities_at(coords):
 	return wave_function[coords.y][coords.x]

@@ -10,10 +10,9 @@ func _ready():
 	
 	wfc = WFC.new(Vector2(4,4),Global.module_data)
 	do_magic()
+	print(wfc.wave_function)
 	
 func do_magic():
 	while not wfc.is_collapsed():
 		
 		wfc.iterate()
-		print(wfc.wave_function)
-		

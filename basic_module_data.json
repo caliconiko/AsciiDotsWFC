@@ -8,13 +8,7 @@
         }
     },
     ".": {
-        "in_sockets": {
-            "up": "-1",
-            "down": "-1",
-            "left": "-1",
-            "right": "-1"
-        },
-        "out_sockets": {
+        "sockets": {
             "up": "1",
             "down": "1",
             "left": "1",
@@ -54,17 +48,11 @@
         }
     },
     "&": {
-        "in_sockets": {
+        "sockets": {
             "up": "1",
             "down": "1",
             "left": "1",
             "right": "1"
-        },
-        "out_sockets": {
-            "up": "0",
-            "down": "0",
-            "left": "0",
-            "right": "0"
         }
     }
 }
