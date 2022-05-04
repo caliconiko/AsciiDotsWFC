@@ -9,11 +9,11 @@ func _ready():
 	VisualServer.set_default_clear_color(BACKGROUND_COLOR)
 	
 	wfc = WFC.new(Vector2(4,4),Global.module_data)
-	wfc.collapse_at(Vector2(0,0))
-	print(wfc.wave_function[0][0])
-	print(wfc.get_possible_neighbours(Vector2(0,0), Vector2.DOWN))
+	do_magic()
 	
 func do_magic():
 	while not wfc.is_collapsed():
-		pass
+		
+		wfc.iterate()
+		print(wfc.wave_function)
 		

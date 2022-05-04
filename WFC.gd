@@ -4,10 +4,14 @@ class_name WFC
 
 var wave_function = []
 var size:Vector2
+var stack = []
 
 func _init(size:Vector2, module_data:Dictionary):
 	wave_function = initialize(size, module_data)
-	
+
+func get_possibilities_at(coords):
+	return wave_function[coords.y][coords.x]
+
 func initialize(new_size:Vector2, module_data:Dictionary):
 	var all_modules = module_data.keys()
 	size = new_size
@@ -36,16 +40,47 @@ func get_min_entropy_coords():
 			var c = wave_function[j][i]
 			if len(c) == min_entropy:
 				potential_coords.append(Vector2(i, j))
-	print(potential_coords)
 	return potential_coords[randi() % potential_coords.size()]
 	
 func collapse_at(coords:Vector2):
-	var c = wave_function[coords.y][coords.x]
+	var c = get_possibilities_at(coords)
 	wave_function[coords.y][coords.x] = [c[randi() % len(c)]]
 
 func iterate():
 	var coords = get_min_entropy_coords()
 	collapse_at(coords)
+	propagate(coords)
+
+func constrain(coords, module):
+	var possibilities = get_possibilities_at(coords)
+	
+	var new_possibilities = []
+	for possibility in possibilities:
+		if possibility != module:
+			new_possibilities.append(possibility)
+			
+	wave_function[coords.y][coords.x] = new_possibilities
+
+func propagate(coords):
+	stack.append(coords)
+	
+	while len(stack)>0:
+		var cur_coords = stack.pop_back()
+		
+		for dir in get_valid_dirs(cur_coords):
+			var other_coords = cur_coords+dir
+			var other_possible_modules = get_possibilities_at(other_coords).duplicate()
+			
+			var possible_neighbours = get_possible_neighbours(coords, dir)
+			
+			if len(other_possible_modules)==0:
+				continue
+				
+			for other_module in other_possible_modules:
+				if not other_module in possible_neighbours:
+					constrain(other_coords, other_module)
+					if not other_coords in stack:
+						stack.append(other_coords)
 	
 func get_valid_dirs(coords):
 	var valid_dirs_arr = []
@@ -59,7 +94,7 @@ func get_valid_dirs(coords):
 	return valid_dirs_arr
 
 func get_possible_neighbours(coords, dir):
-	var c = wave_function[coords.y][coords.x]
+	var c = get_possibilities_at(coords)
 	var all_possibilities = []
 	var dir_str = Global.vector_to_string[dir]
 	for module in c:
