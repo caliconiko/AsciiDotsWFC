@@ -19,3 +19,10 @@ custom_fonts/normal_font = SubResource( 1 )
 bbcode_enabled = true
 bbcode_text = "asdasdasd"
 text = "asdasdasd"
+
+[node name="Button" type="Button" parent="."]
+anchor_left = 0.726
+anchor_right = 1.0
+anchor_bottom = 0.304
+
+[connection signal="pressed" from="Button" to="." method="_on_Button_pressed"]

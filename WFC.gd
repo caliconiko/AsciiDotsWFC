@@ -5,17 +5,34 @@ class_name WFC
 var wave_function = []
 var size:Vector2
 var stack = []
+var module_data
 
-func _init(start_size:Vector2, module_data:Dictionary):
-	wave_function = initialize(start_size, module_data)
+func _init(start_size:Vector2, module_data_dict:Dictionary):
+	size=start_size
+	module_data = module_data_dict
+	initialize()
+
+func as_string():
+	var lines = ""
+	for line in wave_function:
+		var str_line = ""
+		for c in line:
+			if len(c)>0:
+				str_line+=c[0]
+		lines+=str_line
+		lines+="\n"
+		
+	return lines
 
 func get_possibilities_at(coords):
 	return wave_function[coords.y][coords.x]
-
-func initialize(new_size:Vector2, module_data:Dictionary):
-	var all_modules = module_data.keys()
-	size = new_size
 	
+func set_possibilities_at(coords, possibilities):
+	wave_function[coords.y][coords.x] = possibilities
+
+func initialize():
+	var all_modules = module_data.keys()
+
 	var new_wave_function = []
 	for _y in range(size.y):
 		var x = []
@@ -23,7 +40,7 @@ func initialize(new_size:Vector2, module_data:Dictionary):
 			x.append(all_modules.duplicate())
 		new_wave_function.append(x)
 		
-	return new_wave_function
+	wave_function = new_wave_function
 
 func get_min_entropy_coords():
 	var min_entropy = INF
@@ -54,12 +71,13 @@ func iterate():
 func constrain(coords, module):
 	var possibilities = get_possibilities_at(coords)
 	
-	var new_possibilities = []
-	for possibility in possibilities:
-		if possibility != module:
-			new_possibilities.append(possibility)
-			
-	wave_function[coords.y][coords.x] = new_possibilities
+	if len(possibilities)>0:
+		var new_possibilities = []
+		for possibility in possibilities:
+			if possibility != module:
+				new_possibilities.append(possibility)
+				
+		wave_function[coords.y][coords.x] = new_possibilities
 
 func propagate(coords):
 	stack.append(coords)
@@ -98,11 +116,12 @@ func get_possible_neighbours(coords, dir):
 	var all_possibilities = []
 	var dir_str = Global.vector_to_string[dir]
 	for module in c:
-		var module_data = Global.module_data[module]
-		var possibilities = module_data[Global.POSSIBLE_NEIGHBOURS][dir_str]
-		for possibility in possibilities:
-			if not all_possibilities.has(possibility):
-				all_possibilities.append(possibility)
+		var cur_module_data = Global.module_data[module]
+		if cur_module_data[Global.POSSIBLE_NEIGHBOURS].keys().has(dir_str):
+			var possibilities = cur_module_data[Global.POSSIBLE_NEIGHBOURS][dir_str]
+			for possibility in possibilities:
+				if not all_possibilities.has(possibility):
+					all_possibilities.append(possibility)
 				
 	return all_possibilities
 
