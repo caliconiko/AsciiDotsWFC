@@ -8,11 +8,25 @@
 
 config_version=4
 
+_global_script_classes=[ {
+"base": "Node",
+"class": "WFC",
+"language": "GDScript",
+"path": "res://WFC.gd"
+} ]
+_global_script_class_icons={
+"WFC": ""
+}
+
 [application]
 
 config/name="AsciiDotsWFC"
 run/main_scene="res://Main.tscn"
 config/icon="res://icon.png"
+
+[autoload]
+
+Global="*res://Global.gd"
 
 [physics]
 
