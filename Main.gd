@@ -6,6 +6,9 @@ var wfc
 var do_magic = false
 
 onready var text_box = $RichTextLabel
+onready var ticks_label = $Ticks
+
+var ticks = 0
 
 func _ready():
 	randomize()
@@ -16,13 +19,17 @@ func _ready():
 #	wfc.set_possibilities_at(Vector2(0,0), ["|"])
 
 func _process(_delta):
+	text_box.text = wfc.as_string()
+	ticks_label.text = str(ticks)
 	if not wfc.is_collapsed() and do_magic:
+		ticks+=1
 		wfc.iterate()
-		text_box.text = wfc.as_string()
 	else:
 		do_magic = false
 
 
 func _on_Button_pressed():
+	ticks = 0
 	wfc.initialize()
+#	wfc.set_and_propagate(Vector2(10,10), ["V"])
 	do_magic = true

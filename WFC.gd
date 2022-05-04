@@ -18,7 +18,9 @@ func as_string():
 		var str_line = ""
 		for c in line:
 			if len(c)>0:
-				str_line+=c[0]
+				str_line+=c[0][0]
+			else:
+				str_line+="?"
 		lines+=str_line
 		lines+="\n"
 		
@@ -66,6 +68,10 @@ func collapse_at(coords:Vector2):
 func iterate():
 	var coords = get_min_entropy_coords()
 	collapse_at(coords)
+	propagate(coords)
+
+func set_and_propagate(coords, possibilities):
+	set_possibilities_at(coords, possibilities)
 	propagate(coords)
 
 func constrain(coords, module):
