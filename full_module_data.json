@@ -1,45 +1,325 @@
 {
-    ".": {
+    "~": {
         "sockets": {
             "up": "0",
-            "down": "1",
-            "left": ".",
-            "right": "."
+            "down": "0",
+            "left": "0",
+            "right": "0"
         },
         "possible_neighbours": {
-            "left": [
-                "."
-            ],
-            "right": [
-                "."
-            ],
             "up": [
-                "~"
+                "~",
+                "V",
+                ".dl",
+                ".dr"
             ],
             "down": [
-                "~"
+                "~",
+                "^",
+                ".ul",
+                ".ur"
+            ],
+            "left": [
+                "~",
+                ">",
+                ".ur",
+                ".dr"
+            ],
+            "right": [
+                "~",
+                "<",
+                ".ul",
+                ".dl"
             ]
         }
     },
-    "~": {
+    "#": {
         "sockets": {
             "up": "1",
-            "down": "0",
-            "left": "~",
-            "right": "~"
+            "down": "1",
+            "left": "1",
+            "right": "1"
         },
         "possible_neighbours": {
             "up": [
-                "."
+                "#",
+                "^"
             ],
             "down": [
-                "."
+                "#",
+                "V"
             ],
             "left": [
-                "~"
+                "#",
+                "<"
             ],
             "right": [
-                "~"
+                "#",
+                ">"
+            ]
+        }
+    },
+    "^": {
+        "sockets": {
+            "up": "0",
+            "down": "1",
+            "left": "2",
+            "right": "2"
+        },
+        "possible_neighbours": {
+            "up": [
+                "~",
+                "V",
+                ".dl",
+                ".dr"
+            ],
+            "down": [
+                "#",
+                "V"
+            ],
+            "left": [
+                "^",
+                "V",
+                ".ul",
+                ".dl"
+            ],
+            "right": [
+                "^",
+                "V",
+                ".ur",
+                ".dr"
+            ]
+        }
+    },
+    "V": {
+        "sockets": {
+            "up": "1",
+            "down": "0",
+            "left": "2",
+            "right": "2"
+        },
+        "possible_neighbours": {
+            "down": [
+                "~",
+                "^",
+                ".ul",
+                ".ur"
+            ],
+            "up": [
+                "#",
+                "^"
+            ],
+            "left": [
+                "^",
+                "V",
+                ".ul",
+                ".dl"
+            ],
+            "right": [
+                "^",
+                "V",
+                ".ur",
+                ".dr"
+            ]
+        }
+    },
+    ">": {
+        "sockets": {
+            "up": "2",
+            "down": "2",
+            "left": "1",
+            "right": "0"
+        },
+        "possible_neighbours": {
+            "right": [
+                "~",
+                "<",
+                ".ul",
+                ".dl"
+            ],
+            "left": [
+                "#",
+                "<"
+            ],
+            "up": [
+                ">",
+                "<",
+                ".ul",
+                ".ur"
+            ],
+            "down": [
+                ">",
+                "<",
+                ".dl",
+                ".dr"
+            ]
+        }
+    },
+    "<": {
+        "sockets": {
+            "up": "2",
+            "down": "2",
+            "left": "0",
+            "right": "1"
+        },
+        "possible_neighbours": {
+            "left": [
+                "~",
+                ">",
+                ".ur",
+                ".dr"
+            ],
+            "right": [
+                "#",
+                ">"
+            ],
+            "up": [
+                ">",
+                "<",
+                ".ul",
+                ".ur"
+            ],
+            "down": [
+                ">",
+                "<",
+                ".dl",
+                ".dr"
+            ]
+        }
+    },
+    ".ul": {
+        "sockets": {
+            "up": "0",
+            "down": "2",
+            "left": "0",
+            "right": "2"
+        },
+        "possible_neighbours": {
+            "up": [
+                "~",
+                "V",
+                ".dl",
+                ".dr"
+            ],
+            "left": [
+                "~",
+                ">",
+                ".ur",
+                ".dr"
+            ],
+            "right": [
+                "^",
+                "V",
+                ".ur",
+                ".dr"
+            ],
+            "down": [
+                ">",
+                "<",
+                ".dl",
+                ".dr"
+            ]
+        }
+    },
+    ".ur": {
+        "sockets": {
+            "up": "0",
+            "down": "2",
+            "left": "2",
+            "right": "0"
+        },
+        "possible_neighbours": {
+            "up": [
+                "~",
+                "V",
+                ".dl",
+                ".dr"
+            ],
+            "right": [
+                "~",
+                "<",
+                ".ul",
+                ".dl"
+            ],
+            "left": [
+                "^",
+                "V",
+                ".ul",
+                ".dl"
+            ],
+            "down": [
+                ">",
+                "<",
+                ".dl",
+                ".dr"
+            ]
+        }
+    },
+    ".dl": {
+        "sockets": {
+            "up": "2",
+            "down": "0",
+            "left": "0",
+            "right": "2"
+        },
+        "possible_neighbours": {
+            "down": [
+                "~",
+                "^",
+                ".ul",
+                ".ur"
+            ],
+            "left": [
+                "~",
+                ">",
+                ".ur",
+                ".dr"
+            ],
+            "right": [
+                "^",
+                "V",
+                ".ur",
+                ".dr"
+            ],
+            "up": [
+                ">",
+                "<",
+                ".ul",
+                ".ur"
+            ]
+        }
+    },
+    ".dr": {
+        "sockets": {
+            "up": "2",
+            "down": "0",
+            "left": "2",
+            "right": "0"
+        },
+        "possible_neighbours": {
+            "down": [
+                "~",
+                "^",
+                ".ul",
+                ".ur"
+            ],
+            "right": [
+                "~",
+                "<",
+                ".ul",
+                ".dl"
+            ],
+            "left": [
+                "^",
+                "V",
+                ".ul",
+                ".dl"
+            ],
+            "up": [
+                ">",
+                "<",
+                ".ul",
+                ".ur"
             ]
         }
     }
