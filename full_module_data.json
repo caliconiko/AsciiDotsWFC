@@ -1,325 +1,45 @@
 {
+    ".": {
+        "sockets": {
+            "up": "0",
+            "down": "1",
+            "left": ".",
+            "right": "."
+        },
+        "possible_neighbours": {
+            "left": [
+                "."
+            ],
+            "right": [
+                "."
+            ],
+            "up": [
+                "~"
+            ],
+            "down": [
+                "~"
+            ]
+        }
+    },
     "~": {
         "sockets": {
-            "up": "0",
-            "down": "0",
-            "left": "0",
-            "right": "0"
-        },
-        "possible_neighbours": {
-            "up": [
-                "~",
-                ".dl",
-                ".dr",
-                "V"
-            ],
-            "down": [
-                "~",
-                ".ul",
-                ".ur",
-                "^"
-            ],
-            "left": [
-                "~",
-                ".ur",
-                ".dr",
-                ">"
-            ],
-            "right": [
-                "~",
-                ".ul",
-                ".dl",
-                "<"
-            ]
-        }
-    },
-    ".ul": {
-        "sockets": {
-            "up": "0",
-            "down": "2",
-            "left": "0",
-            "right": "2"
-        },
-        "possible_neighbours": {
-            "up": [
-                "~",
-                ".dl",
-                ".dr",
-                "V"
-            ],
-            "left": [
-                "~",
-                ".ur",
-                ".dr",
-                ">"
-            ],
-            "right": [
-                ".ur",
-                ".dr",
-                "^",
-                "V"
-            ],
-            "down": [
-                ".dl",
-                ".dr",
-                ">",
-                "<"
-            ]
-        }
-    },
-    ".ur": {
-        "sockets": {
-            "up": "0",
-            "down": "2",
-            "left": "2",
-            "right": "0"
-        },
-        "possible_neighbours": {
-            "up": [
-                "~",
-                ".dl",
-                ".dr",
-                "V"
-            ],
-            "right": [
-                "~",
-                ".ul",
-                ".dl",
-                "<"
-            ],
-            "left": [
-                ".ul",
-                ".dl",
-                "^",
-                "V"
-            ],
-            "down": [
-                ".dl",
-                ".dr",
-                ">",
-                "<"
-            ]
-        }
-    },
-    ".dl": {
-        "sockets": {
-            "up": "2",
-            "down": "0",
-            "left": "0",
-            "right": "2"
-        },
-        "possible_neighbours": {
-            "down": [
-                "~",
-                ".ul",
-                ".ur",
-                "^"
-            ],
-            "left": [
-                "~",
-                ".ur",
-                ".dr",
-                ">"
-            ],
-            "up": [
-                ".ul",
-                ".ur",
-                ">",
-                "<"
-            ],
-            "right": [
-                ".ur",
-                ".dr",
-                "^",
-                "V"
-            ]
-        }
-    },
-    ".dr": {
-        "sockets": {
-            "up": "2",
-            "down": "0",
-            "left": "2",
-            "right": "0"
-        },
-        "possible_neighbours": {
-            "down": [
-                "~",
-                ".ul",
-                ".ur",
-                "^"
-            ],
-            "right": [
-                "~",
-                ".ul",
-                ".dl",
-                "<"
-            ],
-            "up": [
-                ".ul",
-                ".ur",
-                ">",
-                "<"
-            ],
-            "left": [
-                ".ul",
-                ".dl",
-                "^",
-                "V"
-            ]
-        }
-    },
-    "^": {
-        "sockets": {
-            "up": "0",
-            "down": "1",
-            "left": "2",
-            "right": "2"
-        },
-        "possible_neighbours": {
-            "up": [
-                "~",
-                ".dl",
-                ".dr",
-                "V"
-            ],
-            "left": [
-                ".ul",
-                ".dl",
-                "^",
-                "V"
-            ],
-            "right": [
-                ".ur",
-                ".dr",
-                "^",
-                "V"
-            ],
-            "down": [
-                "V",
-                "#"
-            ]
-        }
-    },
-    "V": {
-        "sockets": {
             "up": "1",
             "down": "0",
-            "left": "2",
-            "right": "2"
-        },
-        "possible_neighbours": {
-            "down": [
-                "~",
-                ".ul",
-                ".ur",
-                "^"
-            ],
-            "left": [
-                ".ul",
-                ".dl",
-                "^",
-                "V"
-            ],
-            "right": [
-                ".ur",
-                ".dr",
-                "^",
-                "V"
-            ],
-            "up": [
-                "^",
-                "#"
-            ]
-        }
-    },
-    ">": {
-        "sockets": {
-            "up": "2",
-            "down": "2",
-            "left": "1",
-            "right": "0"
-        },
-        "possible_neighbours": {
-            "right": [
-                "~",
-                ".ul",
-                ".dl",
-                "<"
-            ],
-            "up": [
-                ".ul",
-                ".ur",
-                ">",
-                "<"
-            ],
-            "down": [
-                ".dl",
-                ".dr",
-                ">",
-                "<"
-            ],
-            "left": [
-                "<",
-                "#"
-            ]
-        }
-    },
-    "<": {
-        "sockets": {
-            "up": "2",
-            "down": "2",
-            "left": "0",
-            "right": "1"
-        },
-        "possible_neighbours": {
-            "left": [
-                "~",
-                ".ur",
-                ".dr",
-                ">"
-            ],
-            "up": [
-                ".ul",
-                ".ur",
-                ">",
-                "<"
-            ],
-            "down": [
-                ".dl",
-                ".dr",
-                ">",
-                "<"
-            ],
-            "right": [
-                ">",
-                "#"
-            ]
-        }
-    },
-    "#": {
-        "sockets": {
-            "up": "1",
-            "down": "1",
-            "left": "1",
-            "right": "1"
+            "left": "~",
+            "right": "~"
         },
         "possible_neighbours": {
             "up": [
-                "^",
-                "#"
+                "."
             ],
             "down": [
-                "V",
-                "#"
-            ],
-            "right": [
-                ">",
-                "#"
+                "."
             ],
             "left": [
-                "<",
-                "#"
+                "~"
+            ],
+            "right": [
+                "~"
             ]
         }
     }

@@ -16,7 +16,6 @@ func _ready():
 	VisualServer.set_default_clear_color(BACKGROUND_COLOR)
 	
 	wfc = WFC.new(Vector2(40,16),Global.module_data)
-#	wfc.set_possibilities_at(Vector2(0,0), ["|"])
 
 func _process(_delta):
 	text_box.text = wfc.as_string()
@@ -31,5 +30,4 @@ func _process(_delta):
 func _on_Button_pressed():
 	ticks = 0
 	wfc.initialize()
-#	wfc.set_and_propagate(Vector2(10,10), ["V"])
 	do_magic = true

@@ -13,6 +13,7 @@ func _init(start_size:Vector2, module_data_dict:Dictionary):
 	initialize()
 
 func as_string():
+	"""Get wave function in nice printable form"""
 	var lines = ""
 	for line in wave_function:
 		var str_line = ""
@@ -33,6 +34,7 @@ func set_possibilities_at(coords, possibilities):
 	wave_function[coords.y][coords.x] = possibilities
 
 func initialize():
+	"""Make new wavefunction"""
 	var all_modules = module_data.keys()
 
 	var new_wave_function = []
@@ -75,6 +77,7 @@ func set_and_propagate(coords, possibilities):
 	propagate(coords)
 
 func constrain(coords, module):
+	"""Remove a module from the possibilities at coords"""
 	var possibilities = get_possibilities_at(coords)
 	
 	if len(possibilities)>0:
@@ -95,7 +98,7 @@ func propagate(coords):
 			var other_coords = cur_coords+dir
 			var other_possible_modules = get_possibilities_at(other_coords).duplicate()
 			
-			var possible_neighbours = get_possible_neighbours(coords, dir)
+			var possible_neighbours = get_possible_neighbours_at(coords, dir)
 			
 			if len(other_possible_modules)==0:
 				continue
@@ -117,18 +120,22 @@ func get_valid_dirs(coords):
 			
 	return valid_dirs_arr
 
-func get_possible_neighbours(coords, dir):
+func get_possible_neighbours_at(coords, dir):
 	var c = get_possibilities_at(coords)
+	return get_possible_neighbours(c, dir)
+	
+func get_possible_neighbours(possibilities, dir):
 	var all_possibilities = []
 	var dir_str = Global.vector_to_string[dir]
-	for module in c:
+	for module in possibilities:
 		var cur_module_data = Global.module_data[module]
 		if cur_module_data[Global.POSSIBLE_NEIGHBOURS].keys().has(dir_str):
-			var possibilities = cur_module_data[Global.POSSIBLE_NEIGHBOURS][dir_str]
-			for possibility in possibilities:
-				if not all_possibilities.has(possibility):
-					all_possibilities.append(possibility)
-				
+			var neighbour_possibilities = cur_module_data[Global.POSSIBLE_NEIGHBOURS][dir_str]
+			
+			for neighbour_possibility in neighbour_possibilities:
+				if not all_possibilities.has(neighbour_possibility):
+					all_possibilities.append(neighbour_possibility)
+
 	return all_possibilities
 
 func is_collapsed():
