@@ -4,7 +4,6 @@ var BACKGROUND_COLOR = Color(0.152941, 0.156863, 0.133333)
 var wfc
 
 var do_magic = false
-var prev_do_magic = false
 
 onready var text_box = $RichTextLabel
 onready var ticks_label = $Ticks
@@ -16,20 +15,24 @@ func _ready():
 	
 	VisualServer.set_default_clear_color(BACKGROUND_COLOR)
 	
-	wfc = WFC.new(Vector2(40,16),Global.module_data)
+	wfc = WFC.new(Vector2(80,27),Global.module_data)
 
 func _process(_delta):
 	text_box.text = wfc.as_string()
 	ticks_label.text = str(ticks)
+	if wfc.is_broken():
+		redo_magic()
+	
 	if not wfc.is_collapsed() and do_magic:
 		ticks+=1
 		wfc.iterate()
 	else:
 		do_magic = false
 
-	prev_do_magic = do_magic
-
-func _on_Button_pressed():
+func redo_magic():
 	ticks = 0
 	wfc.initialize()
 	do_magic = true
+
+func _on_Button_pressed():
+	redo_magic()

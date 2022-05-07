@@ -1,5 +1,5 @@
 {
-    "~": {
+    " ": {
         "sockets": {
             "up": "0",
             "down": "0",
@@ -7,76 +7,68 @@
             "right": "0"
         }
     },
-    "#": {
-        "sockets": {
-            "up": "1",
-            "down": "1",
-            "left": "1",
-            "right": "1"
-        }
-    },
-    "^": {
+    " +": {
         "sockets": {
             "up": "0",
-            "down": "1",
-            "left": "2",
-            "right": "2"
-        }
-    },
-    "V": {
-        "sockets": {
-            "up": "1",
             "down": "0",
-            "left": "2",
-            "right": "2"
-        }
-    },
-    ">": {
-        "sockets": {
-            "up": "2",
-            "down": "2",
-            "left": "1",
+            "left": "-1",
             "right": "0"
         }
     },
-    "<": {
+    ".": {
         "sockets": {
-            "up": "2",
-            "down": "2",
+            "up": "0",
+            "down": "0",
             "left": "0",
             "right": "1"
         }
     },
-    ".ul": {
+    "-": {
+        "sockets": {
+            "up": "0",
+            "down": "0",
+            "left": "1",
+            "right": "1"
+        }
+    },
+    "-slash": {
+        "sockets": {
+            "up": "0",
+            "down": "0",
+            "left": "3",
+            "right": "1"
+        }
+    },
+    "+": {
+        "sockets": {
+            "up": "2",
+            "down": "2",
+            "left": "1",
+            "right": "-1"
+        }
+    },
+    "|": {
+        "sockets": {
+            "up": "2",
+            "down": "2",
+            "left": "0",
+            "right": "-1"
+        }
+    },
+    "/": {
         "sockets": {
             "up": "0",
             "down": "2",
             "left": "0",
-            "right": "2"
+            "right": "3"
         }
     },
-    ".ur": {
-        "sockets": {
-            "up": "0",
-            "down": "2",
-            "left": "2",
-            "right": "0"
-        }
-    },
-    ".dl": {
+    "\\": {
         "sockets": {
             "up": "2",
             "down": "0",
             "left": "0",
-            "right": "2"
-        }
-    },
-    ".dr": {
-        "sockets": {
-            "up": "2",
-            "down": "0",
-            "left": "2",
-            "right": "0"
+            "right": "3"
         }
     }
 }

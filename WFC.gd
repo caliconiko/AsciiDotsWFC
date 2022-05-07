@@ -145,3 +145,11 @@ func is_collapsed():
 				return false
 				
 	return true
+
+func is_broken():
+	for line in wave_function:
+		for c in line:
+			if len(c)<1:
+				return true
+				
+	return false
