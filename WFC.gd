@@ -6,6 +6,7 @@ var wave_function = []
 var size:Vector2
 var stack = []
 var module_data
+var wf_log = ""
 
 func _init(start_size:Vector2, module_data_dict:Dictionary):
 	size=start_size
@@ -36,6 +37,7 @@ func set_possibilities_at(coords, possibilities):
 func initialize():
 	"""Make new wavefunction"""
 	var all_modules = module_data.keys()
+	wf_log = ""
 
 	var new_wave_function = []
 	for _y in range(size.y):
@@ -66,6 +68,15 @@ func get_min_entropy_coords():
 func collapse_at(coords:Vector2):
 	var c = get_possibilities_at(coords)
 	wave_function[coords.y][coords.x] = [c[randi() % len(c)]]
+
+func log_a_thing(thing):
+	wf_log+='\n'
+	wf_log+=str(thing)
+
+func log_wave_function():
+	for line in wave_function:
+		log_a_thing(line)
+	log_a_thing("")
 
 func iterate():
 	var coords = get_min_entropy_coords()
@@ -98,7 +109,7 @@ func propagate(coords):
 			var other_coords = cur_coords+dir
 			var other_possible_modules = get_possibilities_at(other_coords).duplicate()
 			
-			var possible_neighbours = get_possible_neighbours_at(coords, dir)
+			var possible_neighbours = get_possible_neighbours_at(cur_coords, dir)
 			
 			if len(other_possible_modules)==0:
 				continue
