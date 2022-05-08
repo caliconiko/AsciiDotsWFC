@@ -11,56 +11,59 @@ with open(basic_data_file_name, "r") as f:
 # parse json
 basic_module_data = json.loads(basic_data_text)
 
+UP = "up"
+DOWN = "down"
+LEFT = "left"
+RIGHT = "right"
+
 SOCKETS = "sockets"
-IN_SOCKETS = "in_sockets"
-OUT_SOCKETS = "out_sockets"
+ROTATE_SOCKETS = "rotate_sockets"
+
+dirs = [UP, DOWN, LEFT, RIGHT]
 
 invert_dir = {
-    "up": "down",
-    "down": "up",
-    "left": "right",
-    "right": "left",
+    UP: DOWN,
+    DOWN: UP,
+    LEFT: RIGHT,
+    RIGHT: LEFT,
 }
 
-dirs = ["up", "down", "left", "right"]
+rotate_dir_clockwise = {
+    UP:RIGHT,
+    RIGHT:DOWN,
+    DOWN:LEFT,
+    LEFT:UP,
+}
 
-full_module_data = deepcopy(basic_module_data)
+full_module_data = {}
+
+def rotate_sockets_clockwise(sockets):
+    new_sockets = deepcopy(sockets)
+    for dir in sockets:
+        new_sockets[rotate_dir_clockwise[dir]] = sockets[dir]
+    return new_sockets
+
 
 # do thing
-for module in basic_module_data:
+for m in basic_module_data:
+    module=m
     module_data:dict = basic_module_data[module]
 
-    in_sockets:dict = None
-    out_sockets:dict = None
-
-    if SOCKETS in module_data.keys():
-        in_sockets = module_data[SOCKETS]
-        out_sockets = module_data[SOCKETS]
-    else:
-        in_sockets = module_data[IN_SOCKETS]
-        out_sockets = module_data[OUT_SOCKETS]
+    sockets = module_data[SOCKETS]
 
     possible_neighbours = defaultdict(list)
-
     for other_module in basic_module_data:
         other_module_data:dict = basic_module_data[other_module]
 
-        other_in_sockets:dict = None
-        other_out_sockets:dict = None
-
-        if SOCKETS in other_module_data.keys():
-            other_in_sockets = other_module_data[SOCKETS]
-            other_out_sockets = other_module_data[SOCKETS]
-        else:
-            other_in_sockets = other_module_data[IN_SOCKETS]
-            other_out_sockets = other_module_data[OUT_SOCKETS]
+        other_sockets = other_module_data[SOCKETS]
 
         for dir in dirs:
             other_dir = invert_dir[dir]
 
-            if out_sockets[dir] == other_in_sockets[other_dir]:
+            if sockets[dir] == other_sockets[other_dir]:
                 possible_neighbours[dir].append(other_module)
-    
+
+    full_module_data[module] = module_data
     full_module_data[module]["possible_neighbours"] = dict(possible_neighbours)
 
 # write thing

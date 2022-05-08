@@ -8,121 +8,14 @@
             "right": "0"
         }
     },
-    " l": {
+    ".d": {
+        "rotate_sockets": true,
         "weight": 2,
         "sockets": {
-            "up": "0",
+            "up": "1",
             "down": "0",
-            "left": "-1",
+            "left": "0",
             "right": "0"
-        }
-    },
-    " r": {
-        "weight": 2,
-        "sockets": {
-            "up": "0",
-            "down": "0",
-            "left": "0",
-            "right": "-2"
-        }
-    },
-    "-": {
-        "weight": 5,
-        "sockets": {
-            "up": "0",
-            "down": "0",
-            "left": "1",
-            "right": "1"
-        }
-    },
-    "-slash": {
-        "weight": 2,
-        "sockets": {
-            "up": "0",
-            "down": "0",
-            "left": "3",
-            "right": "1"
-        }
-    },
-    "<": {
-        "weight": 1,
-        "sockets": {
-            "up": "2",
-            "down": "2",
-            "left": "1",
-            "right": "-1"
-        }
-    },
-    ">": {
-        "weight": 1,
-        "sockets": {
-            "up": "2",
-            "down": "2",
-            "left": "-2",
-            "right": "1"
-        }
-    },
-    "|": {
-        "weight": 5,
-        "sockets": {
-            "up": "l",
-            "down": "l",
-            "left": "-2",
-            "right": "-1"
-        }
-    },
-    "|u": {
-        "weight": 5,
-        "sockets": {
-            "up": "l",
-            "down": "2",
-            "left": "-2",
-            "right": "-1"
-        }
-    },
-    "|d": {
-        "weight": 5,
-        "sockets": {
-            "up": "2",
-            "down": "l",
-            "left": "-2",
-            "right": "-1"
-        }
-    },
-    "/": {
-        "weight": 2,
-        "sockets": {
-            "up": "0",
-            "down": "2",
-            "left": "0",
-            "right": "3"
-        }
-    },
-    "\\": {
-        "weight": 2,
-        "sockets": {
-            "up": "2",
-            "down": "0",
-            "left": "0",
-            "right": "3"
-        }
-    },
-    "/r": {
-        "weight": 2,
-        "sockets": {
-            "up": "2",
-            "down": "0",
-            "left": "1",
-            "right": "-1"
-        }
-    },
-    "\\r": {
-        "weight": 2,
-        "sockets": {
-            "up": "0",
-            "down": "2",
-            "left": "1",
-            "right": "-1"
         }
     }
 }
