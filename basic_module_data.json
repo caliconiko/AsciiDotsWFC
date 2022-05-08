@@ -1,6 +1,6 @@
 {
     " ": {
-        "weight": 10,
+        "weight": 20,
         "sockets": {
             "up": "0",
             "down": "0",
@@ -15,6 +15,15 @@
             "down": "0",
             "left": "-1",
             "right": "0"
+        }
+    },
+    " r": {
+        "weight": 2,
+        "sockets": {
+            "up": "0",
+            "down": "0",
+            "left": "0",
+            "right": "-2"
         }
     },
     "-": {
@@ -35,7 +44,7 @@
             "right": "1"
         }
     },
-    "*": {
+    "<": {
         "weight": 1,
         "sockets": {
             "up": "2",
@@ -44,17 +53,44 @@
             "right": "-1"
         }
     },
-    "|": {
-        "weight": 5,
+    ">": {
+        "weight": 1,
         "sockets": {
             "up": "2",
             "down": "2",
-            "left": "0",
+            "left": "-2",
+            "right": "1"
+        }
+    },
+    "|": {
+        "weight": 5,
+        "sockets": {
+            "up": "l",
+            "down": "l",
+            "left": "-2",
+            "right": "-1"
+        }
+    },
+    "|u": {
+        "weight": 5,
+        "sockets": {
+            "up": "l",
+            "down": "2",
+            "left": "-2",
+            "right": "-1"
+        }
+    },
+    "|d": {
+        "weight": 5,
+        "sockets": {
+            "up": "2",
+            "down": "l",
+            "left": "-2",
             "right": "-1"
         }
     },
     "/": {
-        "weight": 1,
+        "weight": 2,
         "sockets": {
             "up": "0",
             "down": "2",
@@ -63,12 +99,30 @@
         }
     },
     "\\": {
-        "weight": 1,
+        "weight": 2,
         "sockets": {
             "up": "2",
             "down": "0",
             "left": "0",
             "right": "3"
+        }
+    },
+    "/r": {
+        "weight": 2,
+        "sockets": {
+            "up": "2",
+            "down": "0",
+            "left": "1",
+            "right": "-1"
+        }
+    },
+    "\\r": {
+        "weight": 2,
+        "sockets": {
+            "up": "0",
+            "down": "2",
+            "left": "1",
+            "right": "-1"
         }
     }
 }
