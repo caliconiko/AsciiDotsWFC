@@ -5,8 +5,8 @@ var wfc
 
 var do_magic = false
 
-onready var text_box = $RichTextLabel
-onready var ticks_label = $Ticks
+onready var text_box = $HBoxContainer/RichTextLabel
+onready var ticks_label = $HBoxContainer/VBoxContainer/Ticks
 
 var ticks = 0
 
