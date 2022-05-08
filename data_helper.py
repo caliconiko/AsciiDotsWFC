@@ -35,7 +35,6 @@ rotate_dir_clockwise = {
     LEFT:UP,
 }
 
-full_module_data = {}
 
 def rotate_sockets_clockwise(sockets):
     new_sockets = deepcopy(sockets)
@@ -43,17 +42,43 @@ def rotate_sockets_clockwise(sockets):
         new_sockets[rotate_dir_clockwise[dir]] = sockets[dir]
     return new_sockets
 
+rotated_module_data = {}
 
-# do thing
 for m in basic_module_data:
-    module=m
+    module = m
     module_data:dict = basic_module_data[module]
 
     sockets = module_data[SOCKETS]
 
+    should_rotate_sockets = False
+    if ROTATE_SOCKETS in module_data:
+        should_rotate_sockets = module_data[ROTATE_SOCKETS]
+
+    iterations = 1
+    if should_rotate_sockets:
+        iterations = 4
+
+    for i in range(iterations):
+        if should_rotate_sockets:
+            module = m+str(i)
+            
+        module_data[SOCKETS] = sockets
+        rotated_module_data[module] = deepcopy(module_data)
+
+        sockets = rotate_sockets_clockwise(sockets)
+
+full_module_data = {}
+
+# do thing
+for m in rotated_module_data:
+    module=m
+    module_data:dict = rotated_module_data[module]
+
+    sockets = module_data[SOCKETS]
+
     possible_neighbours = defaultdict(list)
-    for other_module in basic_module_data:
-        other_module_data:dict = basic_module_data[other_module]
+    for other_module in rotated_module_data:
+        other_module_data:dict = rotated_module_data[other_module]
 
         other_sockets = other_module_data[SOCKETS]
 

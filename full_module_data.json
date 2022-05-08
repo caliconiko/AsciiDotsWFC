@@ -10,22 +10,31 @@
         "possible_neighbours": {
             "up": [
                 " ",
-                ".d"
+                ".d0",
+                ".d1",
+                ".d3"
             ],
             "down": [
-                " "
+                " ",
+                ".d1",
+                ".d2",
+                ".d3"
             ],
             "left": [
                 " ",
-                ".d"
+                ".d0",
+                ".d2",
+                ".d3"
             ],
             "right": [
                 " ",
-                ".d"
+                ".d0",
+                ".d1",
+                ".d2"
             ]
         }
     },
-    ".d": {
+    ".d0": {
         "rotate_sockets": true,
         "weight": 2,
         "sockets": {
@@ -36,15 +45,124 @@
         },
         "possible_neighbours": {
             "down": [
-                " "
+                " ",
+                ".d1",
+                ".d2",
+                ".d3"
             ],
             "left": [
                 " ",
-                ".d"
+                ".d0",
+                ".d2",
+                ".d3"
             ],
             "right": [
                 " ",
-                ".d"
+                ".d0",
+                ".d1",
+                ".d2"
+            ],
+            "up": [
+                ".d2"
+            ]
+        }
+    },
+    ".d1": {
+        "rotate_sockets": true,
+        "weight": 2,
+        "sockets": {
+            "up": "0",
+            "down": "0",
+            "left": "0",
+            "right": "1"
+        },
+        "possible_neighbours": {
+            "up": [
+                " ",
+                ".d0",
+                ".d1",
+                ".d3"
+            ],
+            "down": [
+                " ",
+                ".d1",
+                ".d2",
+                ".d3"
+            ],
+            "left": [
+                " ",
+                ".d0",
+                ".d2",
+                ".d3"
+            ],
+            "right": [
+                ".d3"
+            ]
+        }
+    },
+    ".d2": {
+        "rotate_sockets": true,
+        "weight": 2,
+        "sockets": {
+            "up": "0",
+            "down": "1",
+            "left": "0",
+            "right": "0"
+        },
+        "possible_neighbours": {
+            "up": [
+                " ",
+                ".d0",
+                ".d1",
+                ".d3"
+            ],
+            "left": [
+                " ",
+                ".d0",
+                ".d2",
+                ".d3"
+            ],
+            "right": [
+                " ",
+                ".d0",
+                ".d1",
+                ".d2"
+            ],
+            "down": [
+                ".d0"
+            ]
+        }
+    },
+    ".d3": {
+        "rotate_sockets": true,
+        "weight": 2,
+        "sockets": {
+            "up": "0",
+            "down": "0",
+            "left": "1",
+            "right": "0"
+        },
+        "possible_neighbours": {
+            "up": [
+                " ",
+                ".d0",
+                ".d1",
+                ".d3"
+            ],
+            "down": [
+                " ",
+                ".d1",
+                ".d2",
+                ".d3"
+            ],
+            "right": [
+                " ",
+                ".d0",
+                ".d1",
+                ".d2"
+            ],
+            "left": [
+                ".d1"
             ]
         }
     }
