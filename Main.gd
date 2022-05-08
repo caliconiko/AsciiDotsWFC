@@ -37,9 +37,3 @@ func redo_magic():
 
 func _on_GenerateButton_pressed():
 	redo_magic()
-
-func _on_SaveButton_pressed():
-	file_dialog.popup()
-
-
-

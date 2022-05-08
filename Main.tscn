@@ -49,24 +49,4 @@ rect_min_size = Vector2( 0, 100 )
 custom_fonts/font = ExtResource( 3 )
 text = "123"
 
-[node name="SaveButton" type="Button" parent="HBoxContainer/VBoxContainer"]
-margin_top = 208.0
-margin_right = 140.0
-margin_bottom = 308.0
-rect_min_size = Vector2( 0, 100 )
-custom_fonts/font = ExtResource( 3 )
-text = "Save"
-
-[node name="FileDialog" type="FileDialog" parent="."]
-margin_left = 181.0
-margin_top = 89.0
-margin_right = 555.0
-margin_bottom = 479.0
-window_title = "Open a File"
-mode = 0
-access = 2
-current_dir = "/Niko/Godot/Projects/AsciiDotsWFC"
-current_path = "/Niko/Godot/Projects/AsciiDotsWFC/"
-
 [connection signal="pressed" from="HBoxContainer/VBoxContainer/GenerateButton" to="." method="_on_GenerateButton_pressed"]
-[connection signal="pressed" from="HBoxContainer/VBoxContainer/SaveButton" to="." method="_on_SaveButton_pressed"]
