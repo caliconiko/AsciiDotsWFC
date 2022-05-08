@@ -6,10 +6,12 @@ var wave_function = []
 var size:Vector2
 var stack = []
 var module_data
+var all_possibilities
 
 func _init(start_size:Vector2, module_data_dict:Dictionary):
 	size=start_size
 	module_data = module_data_dict
+	all_possibilities = module_data.keys()
 	initialize()
 
 func as_string():
@@ -35,13 +37,12 @@ func set_possibilities_at(coords, possibilities):
 
 func initialize():
 	"""Make new wavefunction"""
-	var all_modules = module_data.keys()
 
 	var new_wave_function = []
 	for _y in range(size.y):
 		var x = []
 		for _x in range(size.x):
-			x.append(all_modules.duplicate())
+			x.append(all_possibilities.duplicate())
 		new_wave_function.append(x)
 		
 	wave_function = new_wave_function
@@ -80,13 +81,13 @@ func constrain(coords, module):
 	"""Remove a module from the possibilities at coords"""
 	var possibilities = get_possibilities_at(coords)
 	
-	if len(possibilities)>0:
-		var new_possibilities = []
-		for possibility in possibilities:
-			if possibility != module:
-				new_possibilities.append(possibility)
-				
-		wave_function[coords.y][coords.x] = new_possibilities
+	var new_possibilities = []
+	for possibility in possibilities:
+		if possibility != module:
+			new_possibilities.append(possibility)
+	
+
+	set_possibilities_at(coords, new_possibilities)
 
 func propagate(coords):
 	stack.append(coords)

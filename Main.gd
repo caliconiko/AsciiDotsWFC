@@ -7,6 +7,7 @@ var do_magic = false
 
 onready var text_box = $HBoxContainer/RichTextLabel
 onready var ticks_label = $HBoxContainer/VBoxContainer/Ticks
+onready var file_dialog = $FileDialog
 
 var ticks = 0
 
@@ -15,7 +16,7 @@ func _ready():
 	
 	VisualServer.set_default_clear_color(BACKGROUND_COLOR)
 	
-	wfc = WFC.new(Vector2(80,27),Global.module_data)
+	wfc = WFC.new(Vector2(90,25),Global.module_data)
 
 func _process(_delta):
 	text_box.text = wfc.as_string()
@@ -34,5 +35,11 @@ func redo_magic():
 	wfc.initialize()
 	do_magic = true
 
-func _on_Button_pressed():
+func _on_GenerateButton_pressed():
 	redo_magic()
+
+func _on_SaveButton_pressed():
+	file_dialog.popup()
+
+
+
