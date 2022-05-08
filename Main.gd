@@ -12,7 +12,7 @@ onready var file_dialog = $FileDialog
 var ticks = 0
 
 func _ready():
-	seed(1)
+	seed(69)
 	
 	VisualServer.set_default_clear_color(BACKGROUND_COLOR)
 	

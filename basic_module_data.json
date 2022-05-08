@@ -1,5 +1,6 @@
 {
     " ": {
+        "weight": 10,
         "sockets": {
             "up": "0",
             "down": "0",
@@ -7,7 +8,8 @@
             "right": "0"
         }
     },
-    " +": {
+    " l": {
+        "weight": 2,
         "sockets": {
             "up": "0",
             "down": "0",
@@ -15,15 +17,8 @@
             "right": "0"
         }
     },
-    ".": {
-        "sockets": {
-            "up": "0",
-            "down": "0",
-            "left": "0",
-            "right": "1"
-        }
-    },
     "-": {
+        "weight": 5,
         "sockets": {
             "up": "0",
             "down": "0",
@@ -32,6 +27,7 @@
         }
     },
     "-slash": {
+        "weight": 2,
         "sockets": {
             "up": "0",
             "down": "0",
@@ -39,7 +35,8 @@
             "right": "1"
         }
     },
-    "+": {
+    "*": {
+        "weight": 1,
         "sockets": {
             "up": "2",
             "down": "2",
@@ -48,6 +45,7 @@
         }
     },
     "|": {
+        "weight": 5,
         "sockets": {
             "up": "2",
             "down": "2",
@@ -56,6 +54,7 @@
         }
     },
     "/": {
+        "weight": 1,
         "sockets": {
             "up": "0",
             "down": "2",
@@ -64,6 +63,7 @@
         }
     },
     "\\": {
+        "weight": 1,
         "sockets": {
             "up": "2",
             "down": "0",

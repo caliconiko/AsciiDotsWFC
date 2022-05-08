@@ -2,14 +2,8 @@ extends Node
 
 var module_data
 var all_modules = []
-var POSSIBLE_NEIGHBOURS = "possible_neighbours"
 
-var vector_to_string = {
-	Vector2.UP : "up",
-	Vector2.DOWN : "down",
-	Vector2.LEFT : "left",
-	Vector2.RIGHT : "right"
-}
+
 
 func _ready():
 	module_data = load_module_data()
