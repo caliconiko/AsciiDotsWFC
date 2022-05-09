@@ -13,7 +13,6 @@ font_data = ExtResource( 1 )
 anchor_right = 1.0
 anchor_bottom = 1.0
 script = ExtResource( 2 )
-wave_function_width = 25
 
 [node name="AsciiDotsery" type="Control" parent="."]
 visible = false
@@ -72,11 +71,27 @@ text = "Initialize"
 [node name="StepButton" type="Button" parent="HBoxContainer/VBoxContainer"]
 margin_top = 312.0
 margin_right = 172.0
-margin_bottom = 412.0
-rect_min_size = Vector2( 0, 100 )
+margin_bottom = 372.0
+rect_min_size = Vector2( 0, 60 )
 custom_fonts/font = ExtResource( 3 )
 disabled = true
 text = "Step"
+
+[node name="AsciiDotsTicks" type="Label" parent="HBoxContainer/VBoxContainer"]
+margin_top = 376.0
+margin_right = 172.0
+margin_bottom = 476.0
+rect_min_size = Vector2( 0, 100 )
+custom_fonts/font = ExtResource( 3 )
+text = "0"
+
+[node name="DotCount" type="Label" parent="HBoxContainer/VBoxContainer"]
+margin_top = 480.0
+margin_right = 172.0
+margin_bottom = 580.0
+rect_min_size = Vector2( 0, 100 )
+custom_fonts/font = ExtResource( 3 )
+text = "0"
 
 [connection signal="pressed" from="HBoxContainer/VBoxContainer/GenerateButton" to="." method="_on_GenerateButton_pressed"]
 [connection signal="pressed" from="HBoxContainer/VBoxContainer/InitButton" to="." method="_on_InitButton_pressed"]

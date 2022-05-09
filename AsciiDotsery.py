@@ -46,9 +46,6 @@ class AsciiDotsery(Control):
 	interpreter:AsciiDotsInterpreter = None
 	callbacks:Callbacks = None
 	
-	def print_type_of(self, x):
-		print(type(x))
-
 	def _ready(self):
 		pass
 		

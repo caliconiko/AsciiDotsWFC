@@ -2,6 +2,8 @@ extends Control
 
 onready var text_box = $HBoxContainer/RichTextLabel
 onready var ticks_label = $HBoxContainer/VBoxContainer/Ticks
+onready var asciidots_ticks_label = $HBoxContainer/VBoxContainer/AsciiDotsTicks
+onready var dot_count_label = $HBoxContainer/VBoxContainer/DotCount
 onready var asciidotsery = $AsciiDotsery
 
 onready var init_button = $HBoxContainer/VBoxContainer/InitButton
@@ -10,12 +12,13 @@ onready var step_button = $HBoxContainer/VBoxContainer/StepButton
 var ticks = 0
 
 var BACKGROUND_COLOR = Color(0.152941, 0.156863, 0.133333)
-var DOT_COLOR = Color(1, 0, 0)
+var DOT_COLOR = Color(0.976471, 0.14902, 0.447059)
 var wfc
 
 var do_magic = false
 
 var dots = []
+var dot_counts = [0]
 
 export(int,0,90) var wave_function_width = 90
 export(int,0,25) var wave_function_height = 25
@@ -24,6 +27,7 @@ func _ready():
 	seed(69420)
 	
 	VisualServer.set_default_clear_color(BACKGROUND_COLOR)
+	dot_count_label.modulate = DOT_COLOR
 	
 	wfc = WFC.new(Vector2(wave_function_width,wave_function_height),Global.module_data)
 	var s = "01234"
@@ -34,6 +38,8 @@ func _ready():
 func _process(_delta):
 	text_box.bbcode_text = highlight_dots(wfc.as_string())
 	ticks_label.text = str(ticks)
+	asciidots_ticks_label.text = str(len(dot_counts))
+	dot_count_label.text = str(dot_counts[-1])
 	if wfc.is_broken():
 		redo_magic()
 	
@@ -45,22 +51,24 @@ func _process(_delta):
 		init_button.disabled=false
 
 func highlight_dots(wf_str:String):
-	var wf_lines = Array(wf_str.split("\n"))
-
-	var highlighted_lines = wf_lines.duplicate()
+	var wf_lines = wf_str.split("\n")
+	var wf_lines_splitted = []
+	for wf_line in wf_lines:
+		var wf_splitted_line = []
+		for wf_character in wf_line:
+			wf_splitted_line.append(wf_character)
+		wf_lines_splitted.append(wf_splitted_line)
+	
+	var highlighted_lines_splitted = wf_lines_splitted.duplicate()
 	
 	for dot_pos in dots:
 		var wf_char = wf_lines[dot_pos.y][dot_pos.x]
-		var wf_line = wf_lines[dot_pos.y]
 		var highlighted_char = "[color=#"+DOT_COLOR.to_html(false)+"]"+wf_char+"[/color]"
 		
-		wf_line[dot_pos.x]=0
-		wf_line=wf_line.insert(dot_pos.x, highlighted_char)
-		
-		highlighted_lines[dot_pos.y] = wf_line
+		highlighted_lines_splitted[dot_pos.y][dot_pos.x] = highlighted_char
 		
 	var combined_highlighted = ""
-	for line in highlighted_lines:
+	for line in highlighted_lines_splitted:
 		var combined_line = ""
 		
 		for character in line:
@@ -72,7 +80,9 @@ func highlight_dots(wf_str:String):
 
 func redo_magic():
 	dots=[]
+	dot_counts=[0]
 	init_button.disabled=true
+	step_button.disabled=true
 	ticks = 0
 	wfc.initialize()
 	do_magic = true
@@ -87,4 +97,4 @@ func _on_InitButton_pressed():
 func _on_StepButton_pressed():
 	asciidotsery.step()
 	dots=asciidotsery.get_dots()
-	print(dots)
+	dot_counts.append(len(dots))
