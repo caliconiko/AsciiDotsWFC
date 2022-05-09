@@ -176,7 +176,7 @@ func get_possible_neighbours_at(coords:Vector2, dir):
 	return get_possible_neighbours(c, dir)
 	
 func get_possible_neighbours(possibilities, dir):
-	var all_possibilities = []
+	var all_neighbour_possibilities = []
 	var dir_str = VECTOR_TO_STRING[dir]
 	for module in possibilities:
 		var cur_module_data = module_data[module]
@@ -184,10 +184,10 @@ func get_possible_neighbours(possibilities, dir):
 			var neighbour_possibilities = cur_module_data[POSSIBLE_NEIGHBOURS][dir_str]
 			
 			for neighbour_possibility in neighbour_possibilities:
-				if not all_possibilities.has(neighbour_possibility):
-					all_possibilities.append(neighbour_possibility)
+				if not all_neighbour_possibilities.has(neighbour_possibility):
+					all_neighbour_possibilities.append(neighbour_possibility)
 
-	return all_possibilities
+	return all_neighbour_possibilities
 
 func is_collapsed():
 	for line in wave_function:
