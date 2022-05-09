@@ -26,7 +26,6 @@ func _init(start_size:Vector2, module_data_dict:Dictionary):
 	for module in module_data.keys():
 		weights[module] = module_data[module][WEIGHT]
 		
-	print(weights)
 	initialize()
 
 func as_string():
@@ -35,10 +34,12 @@ func as_string():
 	for line in wave_function:
 		var str_line = ""
 		for c in line:
+			var character
 			if len(c)>0:
-				str_line+=c[0][0]
+				character=c[0][0]
 			else:
-				str_line+="?"
+				character="?"
+			str_line+=character
 		lines+=str_line
 		lines+="\n"
 		

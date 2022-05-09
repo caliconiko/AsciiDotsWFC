@@ -4,7 +4,6 @@ var module_data
 var all_modules = []
 
 
-
 func _ready():
 	module_data = load_module_data()
 	for module in module_data:

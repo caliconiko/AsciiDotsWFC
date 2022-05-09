@@ -1,8 +1,9 @@
-[gd_scene load_steps=5 format=2]
+[gd_scene load_steps=6 format=2]
 
 [ext_resource path="res://Inconsolata-Regular.ttf" type="DynamicFontData" id=1]
 [ext_resource path="res://Main.gd" type="Script" id=2]
 [ext_resource path="res://Font.tres" type="DynamicFont" id=3]
+[ext_resource path="res://AsciiDotsery.py" type="Script" id=4]
 
 [sub_resource type="DynamicFont" id=1]
 size = 18
@@ -13,29 +14,36 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 script = ExtResource( 2 )
 
+[node name="AsciiDotsery" type="Control" parent="."]
+visible = false
+margin_right = 40.0
+margin_bottom = 40.0
+script = ExtResource( 4 )
+
 [node name="HBoxContainer" type="HBoxContainer" parent="."]
 anchor_right = 1.0
 anchor_bottom = 1.0
 
 [node name="RichTextLabel" type="RichTextLabel" parent="HBoxContainer"]
-margin_right = 880.0
+margin_right = 848.0
 margin_bottom = 600.0
 focus_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
 custom_fonts/normal_font = SubResource( 1 )
+bbcode_enabled = true
 bbcode_text = "asdasdasd"
 text = "asdasdasd"
 selection_enabled = true
 
 [node name="VBoxContainer" type="VBoxContainer" parent="HBoxContainer"]
-margin_left = 884.0
+margin_left = 852.0
 margin_right = 1024.0
 margin_bottom = 600.0
 rect_min_size = Vector2( 100, 0 )
 
 [node name="GenerateButton" type="Button" parent="HBoxContainer/VBoxContainer"]
-margin_right = 140.0
+margin_right = 172.0
 margin_bottom = 100.0
 rect_min_size = Vector2( 0, 100 )
 custom_fonts/font = ExtResource( 3 )
@@ -43,10 +51,30 @@ text = "Generate"
 
 [node name="Ticks" type="Label" parent="HBoxContainer/VBoxContainer"]
 margin_top = 104.0
-margin_right = 140.0
+margin_right = 172.0
 margin_bottom = 204.0
 rect_min_size = Vector2( 0, 100 )
 custom_fonts/font = ExtResource( 3 )
 text = "123"
 
+[node name="InitButton" type="Button" parent="HBoxContainer/VBoxContainer"]
+margin_top = 208.0
+margin_right = 172.0
+margin_bottom = 308.0
+rect_min_size = Vector2( 0, 100 )
+custom_fonts/font = ExtResource( 3 )
+disabled = true
+text = "Initialize"
+
+[node name="StepButton" type="Button" parent="HBoxContainer/VBoxContainer"]
+margin_top = 312.0
+margin_right = 172.0
+margin_bottom = 412.0
+rect_min_size = Vector2( 0, 100 )
+custom_fonts/font = ExtResource( 3 )
+disabled = true
+text = "Step"
+
 [connection signal="pressed" from="HBoxContainer/VBoxContainer/GenerateButton" to="." method="_on_GenerateButton_pressed"]
+[connection signal="pressed" from="HBoxContainer/VBoxContainer/InitButton" to="." method="_on_InitButton_pressed"]
+[connection signal="pressed" from="HBoxContainer/VBoxContainer/StepButton" to="." method="_on_StepButton_pressed"]
