@@ -2,8 +2,8 @@
 
 [ext_resource path="res://Inconsolata-Regular.ttf" type="DynamicFontData" id=1]
 [ext_resource path="res://Main.gd" type="Script" id=2]
-[ext_resource path="res://Font.tres" type="DynamicFont" id=3]
 [ext_resource path="res://AsciiDotsery.py" type="Script" id=4]
+[ext_resource path="res://theme.tres" type="Theme" id=5]
 
 [sub_resource type="DynamicFont" id=1]
 size = 18
@@ -25,7 +25,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 
 [node name="RichTextLabel" type="RichTextLabel" parent="HBoxContainer"]
-margin_right = 848.0
+margin_right = 860.0
 margin_bottom = 600.0
 focus_mode = 2
 size_flags_horizontal = 3
@@ -33,64 +33,63 @@ size_flags_vertical = 3
 custom_fonts/normal_font = SubResource( 1 )
 bbcode_enabled = true
 bbcode_text = "asdasdasd"
-text = "aaa
-aaa
-aaa"
+text = "asdasdasd"
 selection_enabled = true
 
 [node name="VBoxContainer" type="VBoxContainer" parent="HBoxContainer"]
-margin_left = 852.0
+margin_left = 864.0
 margin_right = 1024.0
 margin_bottom = 600.0
 rect_min_size = Vector2( 100, 0 )
+theme = ExtResource( 5 )
 
 [node name="GenerateButton" type="Button" parent="HBoxContainer/VBoxContainer"]
-margin_right = 172.0
+margin_right = 160.0
 margin_bottom = 100.0
 rect_min_size = Vector2( 0, 100 )
-custom_fonts/font = ExtResource( 3 )
+theme = ExtResource( 5 )
 text = "Generate"
 
 [node name="Ticks" type="Label" parent="HBoxContainer/VBoxContainer"]
 margin_top = 104.0
-margin_right = 172.0
+margin_right = 160.0
 margin_bottom = 204.0
 rect_min_size = Vector2( 0, 100 )
-custom_fonts/font = ExtResource( 3 )
+theme = ExtResource( 5 )
 text = "123"
 
 [node name="InitButton" type="Button" parent="HBoxContainer/VBoxContainer"]
 margin_top = 208.0
-margin_right = 172.0
+margin_right = 160.0
 margin_bottom = 308.0
 rect_min_size = Vector2( 0, 100 )
-custom_fonts/font = ExtResource( 3 )
+theme = ExtResource( 5 )
 disabled = true
 text = "Initialize"
 
 [node name="StepButton" type="Button" parent="HBoxContainer/VBoxContainer"]
 margin_top = 312.0
-margin_right = 172.0
+margin_right = 160.0
 margin_bottom = 372.0
 rect_min_size = Vector2( 0, 60 )
-custom_fonts/font = ExtResource( 3 )
+theme = ExtResource( 5 )
 disabled = true
 text = "Step"
 
 [node name="AsciiDotsTicks" type="Label" parent="HBoxContainer/VBoxContainer"]
 margin_top = 376.0
-margin_right = 172.0
-margin_bottom = 476.0
-rect_min_size = Vector2( 0, 100 )
-custom_fonts/font = ExtResource( 3 )
+margin_right = 160.0
+margin_bottom = 436.0
+rect_min_size = Vector2( 0, 60 )
+theme = ExtResource( 5 )
 text = "0"
 
 [node name="DotCount" type="Label" parent="HBoxContainer/VBoxContainer"]
-margin_top = 480.0
-margin_right = 172.0
-margin_bottom = 580.0
+margin_top = 440.0
+margin_right = 160.0
+margin_bottom = 540.0
 rect_min_size = Vector2( 0, 100 )
-custom_fonts/font = ExtResource( 3 )
+theme = ExtResource( 5 )
 text = "0"
 
 [connection signal="pressed" from="HBoxContainer/VBoxContainer/GenerateButton" to="." method="_on_GenerateButton_pressed"]

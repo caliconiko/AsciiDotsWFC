@@ -24,7 +24,7 @@ export(int,0,90) var wave_function_width = 90
 export(int,0,25) var wave_function_height = 25
 
 func _ready():
-	seed(69420)
+	randomize()
 	
 	VisualServer.set_default_clear_color(BACKGROUND_COLOR)
 	dot_count_label.modulate = DOT_COLOR
