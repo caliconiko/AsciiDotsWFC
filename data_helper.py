@@ -35,6 +35,7 @@ rotate_dir_clockwise = {
     LEFT:UP,
 }
 
+WEIGHT = "weight"
 
 def rotate_sockets_clockwise(sockets):
     new_sockets = deepcopy(sockets)
@@ -46,7 +47,8 @@ rotated_module_data = {}
 
 for m in basic_module_data:
     module = m
-    module_data:dict = basic_module_data[module]
+    m_data:dict = basic_module_data[module]
+    module_data = deepcopy(m_data)
 
     sockets = module_data[SOCKETS]
 
@@ -61,7 +63,8 @@ for m in basic_module_data:
     for i in range(iterations):
         if should_rotate_sockets:
             module = m+str(i)
-            
+            module_data[WEIGHT] = m_data[WEIGHT]/4
+
         module_data[SOCKETS] = sockets
         rotated_module_data[module] = deepcopy(module_data)
 
