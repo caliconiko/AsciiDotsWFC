@@ -33,7 +33,9 @@ size_flags_vertical = 3
 custom_fonts/normal_font = SubResource( 1 )
 bbcode_enabled = true
 bbcode_text = "asdasdasd"
-text = "asdasdasd"
+text = "aaa
+aaa
+aaa"
 selection_enabled = true
 
 [node name="VBoxContainer" type="VBoxContainer" parent="HBoxContainer"]
