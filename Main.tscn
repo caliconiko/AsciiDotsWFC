@@ -1,18 +1,17 @@
-[gd_scene load_steps=6 format=2]
+[gd_scene load_steps=4 format=2]
 
-[ext_resource path="res://Inconsolata-Regular.ttf" type="DynamicFontData" id=1]
 [ext_resource path="res://Main.gd" type="Script" id=2]
 [ext_resource path="res://AsciiDotsery.py" type="Script" id=4]
 [ext_resource path="res://theme.tres" type="Theme" id=5]
-
-[sub_resource type="DynamicFont" id=1]
-size = 18
-font_data = ExtResource( 1 )
 
 [node name="Control" type="Control"]
 anchor_right = 1.0
 anchor_bottom = 1.0
 script = ExtResource( 2 )
+
+[node name="RunTimer" type="Timer" parent="."]
+wait_time = 0.1
+one_shot = true
 
 [node name="AsciiDotsery" type="Control" parent="."]
 visible = false
@@ -26,11 +25,11 @@ anchor_bottom = 1.0
 
 [node name="RichTextLabel" type="RichTextLabel" parent="HBoxContainer"]
 margin_right = 860.0
-margin_bottom = 600.0
+margin_bottom = 604.0
 focus_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
-custom_fonts/normal_font = SubResource( 1 )
+theme = ExtResource( 5 )
 bbcode_enabled = true
 bbcode_text = "asdasdasd"
 text = "asdasdasd"
@@ -39,7 +38,7 @@ selection_enabled = true
 [node name="VBoxContainer" type="VBoxContainer" parent="HBoxContainer"]
 margin_left = 864.0
 margin_right = 1024.0
-margin_bottom = 600.0
+margin_bottom = 604.0
 rect_min_size = Vector2( 100, 0 )
 theme = ExtResource( 5 )
 
@@ -76,22 +75,48 @@ theme = ExtResource( 5 )
 disabled = true
 text = "Step"
 
-[node name="AsciiDotsTicks" type="Label" parent="HBoxContainer/VBoxContainer"]
+[node name="HBoxContainer" type="HBoxContainer" parent="HBoxContainer/VBoxContainer"]
 margin_top = 376.0
 margin_right = 160.0
 margin_bottom = 436.0
+rect_min_size = Vector2( 0, 60 )
+
+[node name="RunButton" type="Button" parent="HBoxContainer/VBoxContainer/HBoxContainer"]
+margin_right = 78.0
+margin_bottom = 60.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+disabled = true
+text = "Run"
+
+[node name="StopButton" type="Button" parent="HBoxContainer/VBoxContainer/HBoxContainer"]
+margin_left = 82.0
+margin_right = 160.0
+margin_bottom = 60.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+disabled = true
+text = "Stop"
+
+[node name="AsciiDotsTicks" type="Label" parent="HBoxContainer/VBoxContainer"]
+margin_top = 440.0
+margin_right = 160.0
+margin_bottom = 500.0
 rect_min_size = Vector2( 0, 60 )
 theme = ExtResource( 5 )
 text = "0"
 
 [node name="DotCount" type="Label" parent="HBoxContainer/VBoxContainer"]
-margin_top = 440.0
+margin_top = 504.0
 margin_right = 160.0
-margin_bottom = 540.0
+margin_bottom = 604.0
 rect_min_size = Vector2( 0, 100 )
 theme = ExtResource( 5 )
 text = "0"
 
+[connection signal="timeout" from="RunTimer" to="." method="_on_RunTimer_timeout"]
 [connection signal="pressed" from="HBoxContainer/VBoxContainer/GenerateButton" to="." method="_on_GenerateButton_pressed"]
 [connection signal="pressed" from="HBoxContainer/VBoxContainer/InitButton" to="." method="_on_InitButton_pressed"]
 [connection signal="pressed" from="HBoxContainer/VBoxContainer/StepButton" to="." method="_on_StepButton_pressed"]
+[connection signal="pressed" from="HBoxContainer/VBoxContainer/HBoxContainer/RunButton" to="." method="_on_RunButton_pressed"]
+[connection signal="pressed" from="HBoxContainer/VBoxContainer/HBoxContainer/StopButton" to="." method="_on_StopButton_pressed"]
