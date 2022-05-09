@@ -10,7 +10,7 @@
     },
     ".": {
         "rotate_sockets": true,
-        "weight": 2,
+        "weight": 10,
         "sockets": {
             "up": "1",
             "down": "0",

@@ -48,7 +48,7 @@
     },
     ".0": {
         "rotate_sockets": true,
-        "weight": 0.5,
+        "weight": 2.5,
         "sockets": {
             "up": "1",
             "down": "0",
@@ -94,7 +94,7 @@
     },
     ".1": {
         "rotate_sockets": true,
-        "weight": 0.5,
+        "weight": 2.5,
         "sockets": {
             "up": "0",
             "down": "0",
@@ -140,7 +140,7 @@
     },
     ".2": {
         "rotate_sockets": true,
-        "weight": 0.5,
+        "weight": 2.5,
         "sockets": {
             "up": "0",
             "down": "1",
@@ -186,7 +186,7 @@
     },
     ".3": {
         "rotate_sockets": true,
-        "weight": 0.5,
+        "weight": 2.5,
         "sockets": {
             "up": "0",
             "down": "0",

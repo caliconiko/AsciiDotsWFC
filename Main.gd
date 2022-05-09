@@ -17,13 +17,19 @@ var do_magic = false
 
 var dots = []
 
+export(int,0,90) var wave_function_width = 90
+export(int,0,25) var wave_function_height = 25
+
 func _ready():
 	seed(69420)
 	
 	VisualServer.set_default_clear_color(BACKGROUND_COLOR)
 	
-	wfc = WFC.new(Vector2(90,25),Global.module_data)
+	wfc = WFC.new(Vector2(wave_function_width,wave_function_height),Global.module_data)
 	var s = "01234"
+	s[0]=""
+	s=s.insert(0, "asd")
+	print(s)
 
 func _process(_delta):
 	text_box.bbcode_text = highlight_dots(wfc.as_string())
@@ -41,15 +47,20 @@ func _process(_delta):
 func highlight_dots(wf_str:String):
 	var wf_lines = Array(wf_str.split("\n"))
 
-	var highlighted_splitted_lines = wf_lines.duplicate()
+	var highlighted_lines = wf_lines.duplicate()
 	
 	for dot_pos in dots:
 		var wf_char = wf_lines[dot_pos.y][dot_pos.x]
+		var wf_line = wf_lines[dot_pos.y]
 		var highlighted_char = "[color=#"+DOT_COLOR.to_html(false)+"]"+wf_char+"[/color]"
-		highlighted_splitted_lines[dot_pos.y][dot_pos.x]=highlighted_char
+		
+		wf_line[dot_pos.x]=0
+		wf_line=wf_line.insert(dot_pos.x, highlighted_char)
+		
+		highlighted_lines[dot_pos.y] = wf_line
 		
 	var combined_highlighted = ""
-	for line in highlighted_splitted_lines:
+	for line in highlighted_lines:
 		var combined_line = ""
 		
 		for character in line:
@@ -76,3 +87,4 @@ func _on_InitButton_pressed():
 func _on_StepButton_pressed():
 	asciidotsery.step()
 	dots=asciidotsery.get_dots()
+	print(dots)
