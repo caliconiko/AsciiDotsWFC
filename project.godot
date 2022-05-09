@@ -12,7 +12,7 @@ _global_script_classes=[ {
 "base": "Node",
 "class": "WFC",
 "language": "GDScript",
-"path": "res://WFC.gd"
+"path": "res://scripts/WFC.gd"
 } ]
 _global_script_class_icons={
 "WFC": ""
@@ -26,7 +26,7 @@ config/icon="res://icon.png"
 
 [autoload]
 
-Global="*res://Global.gd"
+Global="*res://scripts/Global.gd"
 
 [display]
 
@@ -42,4 +42,4 @@ common/enable_pause_aware_picking=true
 
 [rendering]
 
-environment/default_environment="res://default_env.tres"
+environment/default_environment="res://resources/default_env.tres"
