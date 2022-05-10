@@ -23,7 +23,7 @@
         "choices": ["#", "@"],
         "self_connecting":false,
         "rotate_sockets": true,
-        "weight": 10,
+        "weight": 30,
         "sockets": {
             "up": "1",
             "down": "N",
@@ -31,14 +31,38 @@
             "right": "0"
         }
     },
-    "N": {
+    "1N": {
+        "choices": ["1", "2", "3", "4", "5", "6", "7", "8", "9", "0"],
+        "self_connecting":false,
+        "rotate_sockets": true,
+        "weight": 15,
+        "sockets": {
+            "up": "N",
+            "down": "1",
+            "left": "0",
+            "right": "0"
+        }
+    },
+    "3N": {
         "choices": ["1", "2", "3", "4", "5", "6", "7", "8", "9", "0"],
         "self_connecting":false,
         "rotate_sockets": true,
         "weight": 10,
         "sockets": {
             "up": "N",
-            "down": "1",
+            "down": "NB",
+            "left": "0",
+            "right": "0"
+        }
+    },
+    "2N": {
+        "choices": ["1", "2", "3", "4", "5", "6", "7", "8", "9", "0"],
+        "self_connecting":false,
+        "rotate_sockets": true,
+        "weight": 10,
+        "sockets": {
+            "up": "NB",
+            "down": "N",
             "left": "0",
             "right": "0"
         }
