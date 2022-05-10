@@ -28,6 +28,8 @@ var dots = []
 var asciidot_ticks = 0
 var dot_count = -1
 
+var wave_function_string = ""
+
 export(int,0,90) var wave_function_width = 90
 export(int,0,25) var wave_function_height = 25
 
@@ -40,7 +42,11 @@ func _ready():
 	wfc = WFC.new(Vector2(wave_function_width,wave_function_height),Global.module_data)
 
 func _process(_delta):
-	text_box.bbcode_text = highlight_dots(wfc.as_string())
+	if do_magic:
+		wave_function_string = wfc.as_string()
+		text_box.bbcode_text = highlight_dots(wave_function_string)
+	else:
+		text_box.bbcode_text = highlight_dots(wave_function_string)
 	ticks_label.text = str(ticks)
 	asciidots_ticks_label.text = str(asciidot_ticks)
 	dot_count_label.text = str(dot_count)
@@ -116,7 +122,7 @@ func _on_InitButton_pressed():
 	dots=[]
 	dot_count = -1
 	asciidot_ticks = 0
-	asciidotsery.initialize(wfc.as_string())
+	asciidotsery.initialize(wave_function_string)
 	for button in interpreter_buttons:
 		button.disabled = false
 	
@@ -128,8 +134,8 @@ func _on_RunButton_pressed():
 	run_timer.start()
 
 func _on_RunTimer_timeout():
-	var dot_count_good = dot_count<0
-	if interpreting and dot_count<1000 or dot_count_good:
+	var dot_count_good = dot_count<0 or dot_count>0
+	if interpreting and dot_count<1000 and dot_count_good:
 		step_interpreter()
 		run_timer.start()
 	else:

@@ -18,6 +18,7 @@ RIGHT = "right"
 
 SOCKETS = "sockets"
 ROTATE_SOCKETS = "rotate_sockets"
+SELF_CONNECTING = "self_connecting"
 
 dirs = [UP, DOWN, LEFT, RIGHT]
 
@@ -62,7 +63,7 @@ for m in basic_module_data:
 
     for i in range(iterations):
         if should_rotate_sockets:
-            module = m+str(i)
+            module = m+"r"+str(i)
             module_data[WEIGHT] = m_data[WEIGHT]/4
 
         module_data[SOCKETS] = sockets
@@ -72,6 +73,13 @@ for m in basic_module_data:
 
 full_module_data = {}
 
+def is_self_connecting(module, other_module):
+    rotated = "r" in module 
+    if rotated:
+        return module[0]==other_module[0] and "r" in other_module
+    else:
+        return module in other_module or other_module in module
+
 # do thing
 for m in rotated_module_data:
     module=m
@@ -79,8 +87,17 @@ for m in rotated_module_data:
 
     sockets = module_data[SOCKETS]
 
+    module_self_connecting = True
+    if SELF_CONNECTING in module_data:
+        module_self_connecting = module_data[SELF_CONNECTING]
+
+
     possible_neighbours = defaultdict(list)
     for other_module in rotated_module_data:
+        check_self_connection = False
+        if not module_self_connecting:
+            check_self_connection = is_self_connecting(module, other_module)
+
         other_module_data:dict = rotated_module_data[other_module]
 
         other_sockets = other_module_data[SOCKETS]
@@ -88,7 +105,7 @@ for m in rotated_module_data:
         for dir in dirs:
             other_dir = invert_dir[dir]
 
-            if sockets[dir] == other_sockets[other_dir]:
+            if sockets[dir] == other_sockets[other_dir] and not check_self_connection:
                 possible_neighbours[dir].append(other_module)
 
     full_module_data[module] = module_data

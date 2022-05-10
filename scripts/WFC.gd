@@ -10,6 +10,7 @@ var all_possibilities
 var weights = {}
 
 const POSSIBLE_NEIGHBOURS = "possible_neighbours"
+const CHOICES = "choices"
 const WEIGHT = "weight"
 const VECTOR_TO_STRING = {
 	Vector2.UP : "up",
@@ -35,8 +36,16 @@ func as_string():
 		var str_line = ""
 		for c in line:
 			var character
+			
+			
 			if len(c)>0:
-				character=c[0][0]
+				var first_possibility = c[0]
+				var has_choices = CHOICES in module_data[first_possibility].keys()
+				if has_choices:
+					var c_choices = module_data[first_possibility][CHOICES]
+					character = c_choices[randi()%len(c_choices)]
+				else:
+					character=c[0][0]
 			else:
 				character="?"
 			str_line+=character
