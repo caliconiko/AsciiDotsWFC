@@ -19,7 +19,7 @@
         }
     },
     "+": {
-        "weight": 20,
+        "weight": 100,
         "sockets": {
             "up": "1",
             "down": "1",
