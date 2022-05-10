@@ -35,6 +35,7 @@ var wave_function_string = ""
 
 export(int,0,90) var wave_function_width = 90
 export(int,0,25) var wave_function_height = 25
+export(int,1,5) var wfc_iterations_per_frame = 2
 
 func _ready():
 	randomize()
@@ -56,12 +57,13 @@ func _process(_delta):
 	if wfc.is_broken():
 		redo_magic()
 	
-	if not wfc.is_collapsed() and do_magic:
-		ticks+=1
-		wfc.iterate()
-	else:
-		do_magic = false
-		init_button.disabled=false
+	for i in range(wfc_iterations_per_frame):
+		if not wfc.is_collapsed() and do_magic:
+			ticks+=1
+			wfc.iterate()
+		else:
+			do_magic = false
+			init_button.disabled=false
 		
 
 

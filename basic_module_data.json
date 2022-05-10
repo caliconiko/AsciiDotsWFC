@@ -11,7 +11,7 @@
     ".": {
         "self_connecting":false,
         "rotate_sockets": true,
-        "weight": 10,
+        "weight": 40,
         "sockets": {
             "up": "1",
             "down": "0",
@@ -114,7 +114,7 @@
     "*": {
         "self_connecting":false,
         "rotate_sockets": true,
-        "weight": 4,
+        "weight": 10,
         "sockets": {
             "up": "0",
             "down": "1",
@@ -192,6 +192,34 @@
             "down": "0",
             "left": "1",
             "right": "0"
+        }
+    },
+    "[": {
+        "weight": 20,
+        "sockets": {
+            "up": "0",
+            "down": "0",
+            "left": "1",
+            "right": "OA"
+        }
+    },
+    "O": {
+        "choices": ["+", "*", "-", "^", "&", "o", "x", "!", "=", "<", ">", "L", "G"],
+        "weight": 20,
+        "sockets": {
+            "up": "1",
+            "down": "1",
+            "left": "OA",
+            "right": "OB"
+        }
+    },
+    "]": {
+        "weight": 20,
+        "sockets": {
+            "up": "0",
+            "down": "0",
+            "left": "OB",
+            "right": "1"
         }
     }
 }
