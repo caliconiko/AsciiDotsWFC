@@ -2386,7 +2386,7 @@
     },
     "+": {
         "self_connecting": false,
-        "weight": 50,
+        "weight": 30,
         "sockets": {
             "up": "1",
             "down": "1",
@@ -2541,7 +2541,7 @@
     "*r0": {
         "self_connecting": false,
         "rotate_sockets": true,
-        "weight": 2.5,
+        "weight": 1.0,
         "sockets": {
             "up": "0",
             "down": "1",
@@ -2620,7 +2620,7 @@
     "*r1": {
         "self_connecting": false,
         "rotate_sockets": true,
-        "weight": 2.5,
+        "weight": 1.0,
         "sockets": {
             "up": "1",
             "down": "1",
@@ -2695,7 +2695,7 @@
     "*r2": {
         "self_connecting": false,
         "rotate_sockets": true,
-        "weight": 2.5,
+        "weight": 1.0,
         "sockets": {
             "up": "1",
             "down": "0",
@@ -2774,7 +2774,7 @@
     "*r3": {
         "self_connecting": false,
         "rotate_sockets": true,
-        "weight": 2.5,
+        "weight": 1.0,
         "sockets": {
             "up": "1",
             "down": "1",

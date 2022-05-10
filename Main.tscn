@@ -40,7 +40,6 @@ theme = ExtResource( 5 )
 bbcode_enabled = true
 bbcode_text = "asdasdasd"
 text = "asdasdasd"
-scroll_following = true
 selection_enabled = true
 
 [node name="Outputs" type="Label" parent="HBoxContainer/LeftVBoxContainer"]
