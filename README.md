@@ -1,3 +1,3 @@
-press button in upper right corner to generate thing
+# AsciiDots + WaveFunctionCollapse
 
-currently not working 
+![](thing_doing_the_thing.gif)
