@@ -1,3 +1,3 @@
 # AsciiDots + WaveFunctionCollapse
 
-![](thing_doing_the_thing.gif)
+![](new_gif_thing.gif)
