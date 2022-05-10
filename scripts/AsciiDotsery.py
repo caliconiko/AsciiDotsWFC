@@ -20,8 +20,7 @@ class Callbacks(IOCallbacksStorage):
 		
 	def on_output(self, value):
 		self.outputs.append(value)
-		print(value)
-		
+
 	def on_finish(self):
 		pass
 		
@@ -67,3 +66,7 @@ class AsciiDotsery(Control):
 		converted_dots = Array([Vector2(dot.pos.x, dot.pos.y) for dot in dots])
 		
 		return converted_dots
+		
+	def get_outputs(self):
+		outputs = self.callbacks.outputs
+		return Array(outputs)

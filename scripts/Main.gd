@@ -1,15 +1,17 @@
 extends Control
 
-onready var text_box = $HBoxContainer/RichTextLabel
-onready var ticks_label = $HBoxContainer/VBoxContainer/Ticks
-onready var asciidots_ticks_label = $HBoxContainer/VBoxContainer/AsciiDotsTicks
-onready var dot_count_label = $HBoxContainer/VBoxContainer/DotCount
+onready var ticks_label = $HBoxContainer/RightVBoxContainer/Ticks
+onready var asciidots_ticks_label = $HBoxContainer/RightVBoxContainer/AsciiDotsTicks
+onready var dot_count_label = $HBoxContainer/RightVBoxContainer/DotCount
 onready var asciidotsery = $AsciiDotsery
 
-onready var init_button = $HBoxContainer/VBoxContainer/InitButton
-onready var step_button = $HBoxContainer/VBoxContainer/StepButton
-onready var run_button = $HBoxContainer/VBoxContainer/HBoxContainer/RunButton
-onready var stop_button = $HBoxContainer/VBoxContainer/HBoxContainer/StopButton
+onready var init_button = $HBoxContainer/RightVBoxContainer/InitButton
+onready var step_button = $HBoxContainer/RightVBoxContainer/StepButton
+onready var run_button = $HBoxContainer/RightVBoxContainer/HBoxContainer/RunButton
+onready var stop_button = $HBoxContainer/RightVBoxContainer/HBoxContainer/StopButton
+
+onready var text_box = $HBoxContainer/LeftVBoxContainer/RichTextLabel
+onready var outputs_label = $HBoxContainer/LeftVBoxContainer/Outputs
 
 onready var run_timer = $RunTimer
 
@@ -27,6 +29,7 @@ var interpreting = false
 var dots = []
 var asciidot_ticks = 0
 var dot_count = -1
+var outputs = []
 
 var wave_function_string = ""
 
@@ -111,9 +114,18 @@ func redo_magic():
 
 func step_interpreter():
 	asciidotsery.step()
+	
 	dots=asciidotsery.get_dots()
 	dot_count=len(dots)
 	asciidot_ticks+=1
+	
+	outputs = asciidotsery.get_outputs()
+
+	var outputs_str = ""
+	for output in outputs:
+		outputs_str+=" "+str(int(output))
+
+	outputs_label.text = outputs_str
 
 func _on_GenerateButton_pressed():
 	redo_magic()

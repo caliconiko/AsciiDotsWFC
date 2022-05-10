@@ -19,11 +19,34 @@
             "right": "0"
         }
     },
-    "S": {
+    "$": {
+        "self_connecting":false,
+        "rotate_sockets": true,
+        "weight": 30,
+        "sockets": {
+            "up": "1",
+            "down": "P",
+            "left": "0",
+            "right": "0"
+        }
+    },
+    "SP": {
         "choices": ["#", "@"],
         "self_connecting":false,
         "rotate_sockets": true,
         "weight": 30,
+        "sockets": {
+            "up": "1",
+            "down": "P",
+            "left": "0",
+            "right": "0"
+        }
+    },
+    "S": {
+        "choices": ["#", "@"],
+        "self_connecting":false,
+        "rotate_sockets": true,
+        "weight": 50,
         "sockets": {
             "up": "1",
             "down": "N",
